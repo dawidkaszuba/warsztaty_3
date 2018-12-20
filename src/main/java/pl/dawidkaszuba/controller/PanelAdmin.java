@@ -15,7 +15,7 @@ public class PanelAdmin extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        getServletContext().getRequestDispatcher("/WEB-INF/PanelAdmin.jsp").forward(request,response);
+        getServletContext().getRequestDispatcher("/WEB-INF/view/PanelAdmin.jsp").forward(request,response);
 
     }
 }

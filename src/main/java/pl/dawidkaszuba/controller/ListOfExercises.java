@@ -24,7 +24,7 @@ public class ListOfExercises extends HttpServlet {
         try {
             List<Exercise> exercisesList = Exercise.findAll(DbUtil.getConn());
             request.setAttribute("exercisesList",exercisesList);
-            getServletContext().getRequestDispatcher("/WEB-INF/ListOfExercises.jsp").forward(request,response);
+            getServletContext().getRequestDispatcher("/WEB-INF/view/ListOfExercises.jsp").forward(request,response);
         } catch (SQLException e) {
             e.printStackTrace();
         }

@@ -15,6 +15,8 @@
         <th>email</th>
 
     </tr>
+    <p><a href="/ManageUsers">Zarządzaj użytkownikami</a></p>
+
     <c:forEach var="user" items="${userList}">
 
         <tr>

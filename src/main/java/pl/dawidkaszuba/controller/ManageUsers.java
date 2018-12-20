@@ -12,26 +12,21 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
-@WebServlet("/UsersOfGroup")
-public class UsersOfGroup extends HttpServlet {
+@WebServlet("/ManageUsers")
+public class ManageUsers extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-            int id = Integer.parseInt(request.getParameter("id"));
-
-            try {
-                List<User> userList = User.loadAllByGroupId(DbUtil.getConn(),id);
-                request.setAttribute("userList",userList);
-                getServletContext().getRequestDispatcher("/WEB-INF/view/UserOfGroups.jsp").forward(request, response);
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-
+        try {
+            List<User> usersList = User.findAll(DbUtil.getConn());
+            request.setAttribute("usersList",usersList);
+            getServletContext().getRequestDispatcher("/WEB-INF/view/ManageUsers.jsp").forward(request,response);
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
 
-
     }
-
+}

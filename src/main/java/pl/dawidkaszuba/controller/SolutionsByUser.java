@@ -25,7 +25,7 @@ public class SolutionsByUser extends HttpServlet {
         try {
             List<Solution> solutionsList = Solution.loadAllByUserId(DbUtil.getConn(),id);
             request.setAttribute("solutionsList",solutionsList);
-            getServletContext().getRequestDispatcher("/WEB-INF/SolutionsByUser.jsp").forward(request, response);
+            getServletContext().getRequestDispatcher("/WEB-INF/view/SolutionsByUser.jsp").forward(request, response);
         } catch (SQLException e) {
             e.printStackTrace();
         }

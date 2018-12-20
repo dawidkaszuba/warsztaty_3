@@ -26,7 +26,7 @@ public class SolutionDetails extends HttpServlet {
         try {
             Solution solution = Solution.findById(DbUtil.getConn(),id);
             request.setAttribute("solution",solution);
-            getServletContext().getRequestDispatcher("/WEB-INF/SolutionDetails.jsp").forward(request, response);
+            getServletContext().getRequestDispatcher("/WEB-INF/view/SolutionDetails.jsp").forward(request, response);
         } catch (SQLException e) {
             e.printStackTrace();
         }

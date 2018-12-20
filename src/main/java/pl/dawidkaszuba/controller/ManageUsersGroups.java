@@ -35,7 +35,7 @@ public class ManageUsersGroups extends HttpServlet {
         try {
             List<UserGroup> userGroups = UserGroup.findAll(DbUtil.getConn());
             request.setAttribute("userGroups",userGroups);
-            getServletContext().getRequestDispatcher("/WEB-INF/ManageUsersGroups.jsp").forward(request,response);
+            getServletContext().getRequestDispatcher("/WEB-INF/view/ManageUsersGroups.jsp").forward(request,response);
         } catch (SQLException e) {
             e.printStackTrace();
         }

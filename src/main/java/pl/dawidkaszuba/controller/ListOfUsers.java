@@ -23,7 +23,7 @@ public class ListOfUsers extends HttpServlet {
             try {
                 List<User> userList = User.findAll(DbUtil.getConn());
                 request.setAttribute("userList",userList);
-                getServletContext().getRequestDispatcher("/WEB-INF/ListOfUsers.jsp").forward(request,response);
+                getServletContext().getRequestDispatcher("/WEB-INF/view/ListOfUsers.jsp").forward(request,response);
             } catch (SQLException e) {
                 e.printStackTrace();
             }

@@ -43,7 +43,7 @@ public class EditUsersGroup extends HttpServlet {
         UserGroup userGroup = new UserGroup(id,name);
 
         request.setAttribute("userGroup",userGroup);
-        getServletContext().getRequestDispatcher("/WEB-INF/EditUsersGroup.jsp").forward(request,response);
+        getServletContext().getRequestDispatcher("/WEB-INF/view/EditUsersGroup.jsp").forward(request,response);
 
 
 
