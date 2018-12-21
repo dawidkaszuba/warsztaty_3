@@ -32,6 +32,17 @@ public class User {
         this.userGroupId = userGroupId;
     }
 
+    public User(Integer id) {
+        this.id = id;
+    }
+
+    public User(Integer id, String email, String username, int userGroupId) {
+        this.id = id;
+        this.email = email;
+        this.username = username;
+        this.userGroupId = userGroupId;
+    }
+
     public static User findById(Connection connection, int id) throws SQLException {
         String sql = "SELECT * FROM users WHERE id = ?";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
@@ -136,13 +147,12 @@ public class User {
                 }
             }
         } else {
-            String sql = "UPDATE users SET email=?, username=?, password=?, user_group_id=? WHERE id=?";
+            String sql = "UPDATE users SET email=?, username=?, user_group_id=? WHERE id=?";
             try (PreparedStatement statement = connection.prepareStatement(sql)) {
                 statement.setString(1, email);
                 statement.setString(2, username);
-                statement.setString(3, password);
-                statement.setInt(4, userGroupId);
-                statement.setInt(5, id);
+                statement.setInt(3, userGroupId);
+                statement.setInt(4, id);
                 statement.execute();
             }
         }

@@ -31,9 +31,14 @@
 
 </table>
 <p>Dodaj nowego użytkownika:</p>
-<form action="/ManageUsers" method="post">
+<form action="/ManageUsers" method="post" id="newUser">
     <p>Nazwa:&nbsp<input type="text" name="newUserName"></p>
     <p>email:&nbsp<input type="text" name="newUserEmail"></p>
+    <p>Wybierz grupe użytkownika: &nbsp<select name="userGroupId" form="newUser">
+        <c:forEach var="group" items="${usersGroups}">
+            <option value="${group.id}">${group.name}</option>
+        </c:forEach>
+    </select></p>
     <input type="submit">
 </form>
 

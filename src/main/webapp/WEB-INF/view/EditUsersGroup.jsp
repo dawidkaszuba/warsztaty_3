@@ -1,4 +1,3 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -18,7 +17,8 @@
 <form action="/EditUsersGroup" method="post">
 
 
-    <p>Podaj nową nazwę grupy "${userGroup.name} o id= "${userGroup.id}"&nbsp<input type="text" name="newNameOfGroup"></p>
+    <p>Podaj nową nazwę grupy "${userGroup.name} o id= "${userGroup.id}"&nbsp<input type="text" name="newNameOfGroup">
+    </p>
     <p><input type="submit"></p>
 
 </form>
