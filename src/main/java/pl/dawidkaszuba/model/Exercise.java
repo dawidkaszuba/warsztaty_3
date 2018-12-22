@@ -20,6 +20,10 @@ public class Exercise {
         this.description = description;
     }
 
+    public Exercise(Integer id) {
+        this.id = id;
+    }
+
     public Exercise() {
     }
 
