@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
+    <style><%@include file="/WEB-INF/css/style.css"%></style>
     <title>Edytowanie użytkownika</title>
 
 </head>

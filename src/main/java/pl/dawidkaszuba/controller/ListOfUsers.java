@@ -27,6 +27,7 @@ public class ListOfUsers extends HttpServlet {
                 getServletContext().getRequestDispatcher("/WEB-INF/view/ListOfUsers.jsp").forward(request,response);
             } catch (SQLException e) {
                 e.printStackTrace();
+              //  response.getWriter().append("SQL ERROR");
             }
 
 

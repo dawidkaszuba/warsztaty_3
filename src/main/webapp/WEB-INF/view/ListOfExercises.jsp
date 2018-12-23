@@ -12,7 +12,7 @@
 
 
 
-<p><a href="/ManageExercises">Zarządzaj zadaniami</a></p>
+<p><a href="/ManageExercises">-->>Zarządzaj zadaniami</a></p>
 
 <table border="2">
     <tr>
