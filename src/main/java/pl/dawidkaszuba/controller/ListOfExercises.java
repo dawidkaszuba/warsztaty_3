@@ -1,5 +1,6 @@
 package pl.dawidkaszuba.controller;
 
+import pl.dawidkaszuba.dao.ExerciseDao;
 import pl.dawidkaszuba.model.DbUtil;
 import pl.dawidkaszuba.model.Exercise;
 import pl.dawidkaszuba.model.User;
@@ -22,7 +23,7 @@ public class ListOfExercises extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         try {
-            List<Exercise> exercisesList = Exercise.findAll(DbUtil.getConn());
+            List<Exercise> exercisesList = ExerciseDao.findAll(DbUtil.getConn());
             request.setAttribute("exercisesList",exercisesList);
             getServletContext().getRequestDispatcher("/WEB-INF/view/ListOfExercises.jsp").forward(request,response);
         } catch (SQLException e) {

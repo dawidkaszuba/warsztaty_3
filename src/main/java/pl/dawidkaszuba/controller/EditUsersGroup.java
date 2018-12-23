@@ -1,5 +1,6 @@
 package pl.dawidkaszuba.controller;
 
+import pl.dawidkaszuba.dao.UserGroupDao;
 import pl.dawidkaszuba.model.DbUtil;
 import pl.dawidkaszuba.model.UserGroup;
 
@@ -25,7 +26,7 @@ public class EditUsersGroup extends HttpServlet {
         String newNameOfGroup = request.getParameter("newNameOfGroup");
         UserGroup userGroup = new UserGroup(id,newNameOfGroup);
         try {
-            userGroup.save(DbUtil.getConn());
+            UserGroupDao.save(DbUtil.getConn(),userGroup);
             response.sendRedirect("/ManageUsersGroups");
 
         } catch (SQLException e) {

@@ -1,5 +1,6 @@
 package pl.dawidkaszuba.controller;
 
+import pl.dawidkaszuba.dao.SolutionDao;
 import pl.dawidkaszuba.model.DbUtil;
 import pl.dawidkaszuba.model.Solution;
 
@@ -24,7 +25,7 @@ public class SolutionDetails extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
 
         try {
-            Solution solution = Solution.findById(DbUtil.getConn(),id);
+            Solution solution = SolutionDao.findById(DbUtil.getConn(),id);
             request.setAttribute("solution",solution);
             getServletContext().getRequestDispatcher("/WEB-INF/view/SolutionDetails.jsp").forward(request, response);
         } catch (SQLException e) {

@@ -6,6 +6,7 @@
 
 </head>
 <body>
+<div class="content">
 <%
 
     javax.servlet.http.Cookie cookie
@@ -28,6 +29,6 @@
 
     <p><input type="submit"></p>
 </form>
-
+</div>
 </body>
 </html>

@@ -1,5 +1,6 @@
 package pl.dawidkaszuba.controller;
 
+import pl.dawidkaszuba.dao.UserDao;
 import pl.dawidkaszuba.model.DbUtil;
 import pl.dawidkaszuba.model.User;
 
@@ -21,7 +22,7 @@ public class ListOfUsers extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
             try {
-                List<User> userList = User.findAll(DbUtil.getConn());
+                List<User> userList = UserDao.findAll(DbUtil.getConn());
                 request.setAttribute("userList",userList);
                 getServletContext().getRequestDispatcher("/WEB-INF/view/ListOfUsers.jsp").forward(request,response);
             } catch (SQLException e) {

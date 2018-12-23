@@ -1,5 +1,6 @@
 package pl.dawidkaszuba.controller;
 
+import pl.dawidkaszuba.dao.UserGroupDao;
 import pl.dawidkaszuba.model.DbUtil;
 import pl.dawidkaszuba.model.Exercise;
 import pl.dawidkaszuba.model.UserGroup;
@@ -21,7 +22,7 @@ public class ManageUsersGroups extends HttpServlet {
         UserGroup userGroup = new UserGroup(nameOfNewGroup);
 
         try {
-            userGroup.save(DbUtil.getConn());
+            UserGroupDao.save(DbUtil.getConn(),userGroup);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -33,7 +34,7 @@ public class ManageUsersGroups extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         try {
-            List<UserGroup> userGroups = UserGroup.findAll(DbUtil.getConn());
+            List<UserGroup> userGroups = UserGroupDao.findAll(DbUtil.getConn());
             request.setAttribute("userGroups",userGroups);
             getServletContext().getRequestDispatcher("/WEB-INF/view/ManageUsersGroups.jsp").forward(request,response);
         } catch (SQLException e) {

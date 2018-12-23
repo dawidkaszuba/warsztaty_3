@@ -2,6 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
+    <style><%@include file="/WEB-INF/css/style.css"%></style>
     <title>Lista wszystkich uzytkowników</title>
 </head>
 <body>
@@ -15,7 +16,7 @@
         <th>email</th>
 
     </tr>
-    <p><a href="/ManageUsers">Zarządzaj użytkownikami</a></p>
+    <p><a href="/ManageUsers">-->>Zarządzaj użytkownikami</a></p>
 
     <c:forEach var="user" items="${userList}">
 

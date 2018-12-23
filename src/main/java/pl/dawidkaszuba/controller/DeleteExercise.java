@@ -1,5 +1,6 @@
 package pl.dawidkaszuba.controller;
 
+import pl.dawidkaszuba.dao.ExerciseDao;
 import pl.dawidkaszuba.model.DbUtil;
 import pl.dawidkaszuba.model.Exercise;
 
@@ -22,10 +23,10 @@ public class DeleteExercise extends HttpServlet {
 
         Exercise exercise = new Exercise(id);
         try {
-            exercise.delete(DbUtil.getConn());
+            ExerciseDao.delete(DbUtil.getConn(), exercise);
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        response.sendRedirect("/ListOfExercises");
+        response.sendRedirect("/ManageExercises");
     }
 }

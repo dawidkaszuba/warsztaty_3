@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
+    <style><%@include file="/WEB-INF/css/style.css"%></style>
     <title>PANEL ADMIN</title>
 </head>
 <body>

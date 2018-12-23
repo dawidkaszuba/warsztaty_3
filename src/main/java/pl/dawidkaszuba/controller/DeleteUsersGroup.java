@@ -1,5 +1,6 @@
 package pl.dawidkaszuba.controller;
 
+import pl.dawidkaszuba.dao.UserGroupDao;
 import pl.dawidkaszuba.model.DbUtil;
 import pl.dawidkaszuba.model.UserGroup;
 
@@ -23,13 +24,13 @@ public class DeleteUsersGroup extends HttpServlet {
         String name = request.getParameter("name");
         UserGroup userGroup = new UserGroup(id,name);
         try {
-            userGroup.delete(DbUtil.getConn());
+            UserGroupDao.delete(DbUtil.getConn(),userGroup);
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
         try {
-            userGroup.delete(DbUtil.getConn());
+            UserGroupDao.delete(DbUtil.getConn(),userGroup);
         } catch (SQLException e) {
             e.printStackTrace();
         }

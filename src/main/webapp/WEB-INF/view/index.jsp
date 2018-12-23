@@ -2,7 +2,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-    <title>Title</title>
+    <style><%@include file="/WEB-INF/css/style.css"%></style>
+    <title>Witaj</title>
 </head>
 <body>
 

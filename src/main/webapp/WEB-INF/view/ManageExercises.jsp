@@ -2,10 +2,19 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
+    <style><%@include file="/WEB-INF/css/style.css"%></style>
     <title>Zarządzaj zadaniami</title>
 </head>
 <body>
 <jsp:include page="/WEB-INF/view/fragments/header.jspf"/>
+
+<p>Dodaj nowe zadanie:</p>
+<form action="/ManageExercises" method="post">
+    <p>Tytuł zadania: &nbsp<input type="text" name="titleExercises"></p>
+    <p>Opis zadania: &nbsp<input type="text" name="descriptionExercises"></p>
+    <p><input type="submit"></p>
+</form>
+
 
 <table border="2">
     <tr>
@@ -27,15 +36,6 @@
 
     </c:forEach>
 </table>
-
-<p>Dodaj nowe zadanie:</p>
-<form action="/ManageExercises" method="post">
-    <p>Tytuł zadania: &nbsp<input type="text" name="titleExercises"></p>
-    <p>Opis zadania: &nbsp<input type="text" name="descriptionExercises"></p>
-    <p><input type="submit"></p>
-</form>
-
-
 
 <jsp:include page="/WEB-INF/view/fragments/footer.jspf"/>
 </body>

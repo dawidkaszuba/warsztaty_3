@@ -1,5 +1,7 @@
 package pl.dawidkaszuba.controller;
 
+import pl.dawidkaszuba.dao.UserDao;
+import pl.dawidkaszuba.dao.UserGroupDao;
 import pl.dawidkaszuba.model.DbUtil;
 import pl.dawidkaszuba.model.User;
 import pl.dawidkaszuba.model.UserGroup;
@@ -30,7 +32,7 @@ public class EditUser extends HttpServlet {
 
         User user= new User(id,userEmail,userName,userGroupId);
         try {
-            user.save(DbUtil.getConn());
+            UserDao.save(DbUtil.getConn(),user);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -44,7 +46,7 @@ public class EditUser extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         User user = new User(id);
         try {
-            List<UserGroup> userGroups = UserGroup.findAll(DbUtil.getConn());
+            List<UserGroup> userGroups = UserGroupDao.findAll(DbUtil.getConn());
             request.setAttribute("userGroups",userGroups);
         } catch (SQLException e) {
             e.printStackTrace();

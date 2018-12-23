@@ -2,11 +2,15 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
+    <style><%@include file="/WEB-INF/css/style.css"%></style>
+
     <title>Zadania</title>
 </head>
 <body>
 
 <jsp:include page="/WEB-INF/view/fragments/header.jspf"/>
+
+
 
 <p><a href="/ManageExercises">Zarządzaj zadaniami</a></p>
 

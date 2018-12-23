@@ -1,5 +1,6 @@
 package pl.dawidkaszuba.controller;
 
+import pl.dawidkaszuba.dao.SolutionDao;
 import pl.dawidkaszuba.model.Solution;
 
 import javax.servlet.ServletException;
@@ -19,7 +20,7 @@ public class StartPage extends HttpServlet {
         int numberSolutions = Integer.parseInt(getServletContext().getInitParameter("number-solutions"));
 
         try {
-            List<Solution> solutionList = Solution.findAll(numberSolutions);
+            List<Solution> solutionList = SolutionDao.findAll(numberSolutions);
             request.setAttribute("solutionlist", solutionList);
             getServletContext().getRequestDispatcher("/WEB-INF/view/index.jsp").forward(request, response);
         } catch (SQLException e) {

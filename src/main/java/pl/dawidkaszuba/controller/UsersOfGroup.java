@@ -1,5 +1,6 @@
 package pl.dawidkaszuba.controller;
 
+import pl.dawidkaszuba.dao.UserDao;
 import pl.dawidkaszuba.model.DbUtil;
 import pl.dawidkaszuba.model.User;
 
@@ -23,7 +24,7 @@ public class UsersOfGroup extends HttpServlet {
             int id = Integer.parseInt(request.getParameter("id"));
 
             try {
-                List<User> userList = User.loadAllByGroupId(DbUtil.getConn(),id);
+                List<User> userList = UserDao.loadAllByGroupId(DbUtil.getConn(),id);
                 request.setAttribute("userList",userList);
                 getServletContext().getRequestDispatcher("/WEB-INF/view/UserOfGroups.jsp").forward(request, response);
             } catch (SQLException e) {

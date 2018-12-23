@@ -1,5 +1,6 @@
 package pl.dawidkaszuba.controller;
 
+import pl.dawidkaszuba.dao.ExerciseDao;
 import pl.dawidkaszuba.model.DbUtil;
 import pl.dawidkaszuba.model.Exercise;
 
@@ -22,7 +23,7 @@ public class ManageExercises extends HttpServlet {
 
         Exercise exercise = new Exercise(titleExercises,descriptionExercises);
         try {
-            exercise.save(DbUtil.getConn());
+            ExerciseDao.save(DbUtil.getConn(),exercise);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -33,7 +34,7 @@ public class ManageExercises extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         try {
-            List<Exercise> exercises = Exercise.findAll(DbUtil.getConn());
+            List<Exercise> exercises = ExerciseDao.findAll(DbUtil.getConn());
             request.setAttribute("exercises",exercises);
             getServletContext().getRequestDispatcher("/WEB-INF/view/ManageExercises.jsp").forward(request,response);
         } catch (SQLException e) {
